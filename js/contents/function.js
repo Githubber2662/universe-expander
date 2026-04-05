@@ -30,7 +30,7 @@ const FORMS = {
             if (CHALS.onChal("normal1") || CHALS.onChal("inf1")) a = a.pow(1.5)
             if (CHALS.onChal("inf3")) a = a.pow(2)
             a = a.sub(1)
-            a = a.root(((this.limit).div(5).logBase(2)).max(1))
+            a = a.sqrt()
             return a.max(1)
         },
         superLimit() {
