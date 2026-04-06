@@ -237,7 +237,7 @@ const UPGS = {
             for (let x = 1; x <= this.cols; x++) if (this.can(x)) {
                 let bulk = this[x].bulk()
                 if (bulk.gt(player.rep_upgs[x])) {
-                    player.replicanti = player.replicanti.sub(this[x].cost(bulk.sub(1)))
+                    player.inf.points = player.inf.points.sub(this[x].cost(bulk.sub(1))) // testing
                     player.rep_upgs[x] = bulk
                 }
             }
@@ -250,9 +250,9 @@ const UPGS = {
                 let lvl = x
                 if (player.inf.upgrades.includes(32)) lvl = lvl.add(UPGS.post_inf[32].effect())
                 if (player.inf.upgrades.includes(13)) lvl = lvl.mul(UPGS.post_inf[13].effect())
-                return lvl.mul(0.01).add(1)
+                return E(1.01).pow(lvl)
             },
-            desc(eff=this.effect()) { return `Multiple Infinity Replicanti growth by ${format(eff)}x.` },
+            desc(eff=this.effect()) { return `Multiply Infinity Replicanti growth by ${format(eff)}.` },
             bulk(x=player.replicanti) {
                 if (x.lt(1)) return E(0)
                 let bulk = x.logBase(1.5).root(player.inf.upgrades.includes(42)?1.25:1.5).add(1).floor()
@@ -400,7 +400,7 @@ const UPGS = {
         },
         44: {
             unl() { return player.replicator.unl },
-            desc: "Infinity upgrade 7 softcaps instead of hardcaps.",
+            desc: "Infinity upgrade 7 softcaps instead of hardcapping.",
             cost: E(1e120),
         },
     },
