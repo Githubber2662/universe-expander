@@ -25,10 +25,10 @@ const UPGS = {
             title: "Replicanti Storage",
             cost(x=player.rep_upgs[this.id]) { return E(2).pow(x.pow(1.5)).mul(10) },
             effect(x=player.rep_upgs[this.id]) {
-                let ret = (E(2).add(x.div(1000))).mul(FORMS.replicanti.galaxy.effect()).mul(FORMS.inf.replicanti.effect()).mul(CHALS.onChal("normal4") || CHALS.onChal("inf1") ? 1 : UPGS.replicanti[4].effect()).pow(x)
+                let ret = (E(1).add(x.div(1000))).mul(FORMS.replicanti.galaxy.effect()).mul(FORMS.inf.replicanti.effect()).mul(CHALS.onChal("normal4") || CHALS.onChal("inf1") ? 1 : UPGS.replicanti[4].effect()).pow(x)
                 return ret
             },
-            desc(eff=this.effect()) { return `Make Replicanti penalty start ${format(eff)}× later.` },
+            desc(eff=this.effect()) { return `Multiply growth rate by ${format(eff)}.` },
             bulk(x=player.replicanti) {
                 if (x.div(10).lt(1)) return E(0)
                 let bulk = x.div(10).logBase(2).root(1.5).add(1).floor()
