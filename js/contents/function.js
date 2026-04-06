@@ -155,7 +155,7 @@ const FORMS = {
             if (player.inf.upgrades.includes(41)) gain = gain.mul(UPGS.post_inf[41].effect())
             if (player.chals.comps.includes("inf4")) gain = gain.mul(E(2).pow(player.chals.comps.length))
             gain = gain.mul(this.mult.effect())
-            return gain.softcap(1e17,player.chals.comps.includes("inf5")?0.75:0.5,0).floor()
+            return gain
         },
         can() {
             if (player.chals.active.includes("inf")) return player.breakInf && CHALS.inf.canComplete()
@@ -202,7 +202,7 @@ const FORMS = {
                 if (CHALS.onChal("inf4")) return E(1)
                 return ret
             },
-            cap() { return E(Infinity) },
+            cap() { return E(1e10).mul(FORMS.inf.comp.effect().cap)  },
         },
         comp: {
             req() { return FORMS.inf.replicanti.cap() },
@@ -219,9 +219,7 @@ const FORMS = {
             effect(x=player.inf.comp) {
                 let ret = {}
                 ret.buff = x
-                ret.nerf = x.add(1).pow(1.5)
-                if (ret.nerf.gte(25)) ret.nerf = ret.nerf.div(25).pow(2).mul(25)
-                if (player.inf.upgrades.includes(32)) ret.nerf = ret.nerf.pow(0.5)
+                ret.nerf = 1
                 ret.cap = E(10).pow(x.sub(9).max(0).pow(1.5))
                 if (ret.cap.gte(1e200)) ret.cap = ret.cap.div(1e200).pow(x.div(10).max(2).pow(1.5)).mul(1e200)
                 return ret
