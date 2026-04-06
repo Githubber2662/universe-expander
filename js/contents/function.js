@@ -202,7 +202,7 @@ const FORMS = {
                 if (CHALS.onChal("inf4")) return E(1)
                 return ret
             },
-            cap() { return E(1e10).mul(FORMS.inf.comp.effect().cap) },
+            cap() { return E(Infinity) },
         },
         comp: {
             req() { return FORMS.inf.replicanti.cap() },
