@@ -4,6 +4,7 @@ const AUTOS = {
         if (player.autobuyer["auto_rg"]) FORMS.replicanti.galaxy.reset(true)
         if (player.autobuyer["auto_rsac"]) FORMS.replicanti.sacrifice.doSac()
         if (player.autobuyer["auto_ic"]) FORMS.inf.comp.reset()
+        if (player.autobuyer["auto_ip"]) UPGS.inf_rep.max(1)
     },
     length: 7,
     1: {
@@ -51,6 +52,13 @@ const AUTOS = {
     7: {
         dis: "Infinity Compressor autobuyer",
         id: "auto_ic",
+        unl() { return player.breakInf },
+        see() { return ACHS.has(48) },
+        see_desc: `Get Achievement "Yes Inflation".`,
+    },
+    8: {
+        dis: "Infinity Point autobuyer",
+        id: "auto_ip",
         unl() { return player.breakInf },
         see() { return ACHS.has(48) },
         see_desc: `Get Achievement "Yes Inflation".`,
