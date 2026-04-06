@@ -58,7 +58,7 @@ const UPGS = {
             effect(x=player.rep_upgs[this.id]) {
                 let lvl = x.mul(FORMS.inf.replicanti.effect()).mul(CHALS.onChal("normal4") || CHALS.onChal("inf1") ? UPGS.replicanti[4].effect() : 1)
                 if (player.prestige.upgrades.includes(12)) lvl = lvl.pow(UPGS.prestige[12].effect())
-                return lvl.div(5).mul(FORMS.replicanti.galaxy.effect()).add(1).softcap(100,1/3,0).softcap(1000,1/3,0)
+                return E(1.2).pow(lvl).softcap(100,1/3,0).softcap(1000,1/3,0)
             },
             desc(eff=this.effect()) { return `Make Replicanti growth is ^${format(eff)} stronger.` },
             bulk(x=player.replicanti) {
