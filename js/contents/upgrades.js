@@ -28,7 +28,7 @@ const UPGS = {
                 let ret = E(2).mul(FORMS.replicanti.galaxy.effect()).mul(FORMS.inf.replicanti.effect()).softcap(10,1/2,0).mul(CHALS.onChal("normal4") || CHALS.onChal("inf1") ? 1 : UPGS.replicanti[4].effect()).pow(x)
                 return ret
             },
-            desc(eff=this.effect()) { return `Make Replicanti penalty starts ${format(eff)}x later.` },
+            desc(eff=this.effect()) { return `Make Replicanti penalty start ${format(eff)}x later.` },
             bulk(x=player.replicanti) {
                 if (x.div(10).lt(1)) return E(0)
                 let bulk = x.div(10).logBase(2).root(1.5).add(1).floor()
