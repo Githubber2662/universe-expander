@@ -40,7 +40,7 @@ const UPGS = {
             title: "Replicanti Multiplier",
             cost(x=player.rep_upgs[this.id]) { return E(10).pow(x.pow(1.5).pow(CHALS.onChal("normal3") || CHALS.onChal("inf1")?2:1)) },
             effect(x=player.rep_upgs[this.id]) {
-                let lvl = x.mul(FORMS.replicanti.galaxy.effect()).mul(FORMS.inf.replicanti.effect()).mul(CHALS.onChal("normal4") || CHALS.onChal("inf1") ? UPGS.replicanti[4].effect() : 1)
+                let lvl = x.mul(FORMS.replicanti.galaxy.effect()).mul(FORMS.inf.replicanti.effect())
                 if (player.prestige.upgrades.includes(11)) lvl = lvl.mul(2)
                 if (player.prestige.upgrades.includes(12)) lvl = lvl.pow(UPGS.prestige[12].effect())
                 return ExpantaNum(1.2).pow(lvl)
@@ -56,7 +56,7 @@ const UPGS = {
             title: "Replicanti Power",
             cost(x=player.rep_upgs[this.id]) { return E(10).pow(x.pow(2).pow(CHALS.onChal("normal3") || CHALS.onChal("inf1")?2:1)).mul(1000) },
             effect(x=player.rep_upgs[this.id]) {
-                let lvl = x.mul(FORMS.inf.replicanti.effect()).mul(CHALS.onChal("normal4") || CHALS.onChal("inf1") ? UPGS.replicanti[4].effect() : 1)
+                let lvl = x.mul(FORMS.inf.replicanti.effect())
                 if (player.prestige.upgrades.includes(12)) lvl = lvl.pow(UPGS.prestige[12].effect())
                 return E(1.2).pow(lvl)
             },
