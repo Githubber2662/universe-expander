@@ -18,7 +18,7 @@ const FORMS = {
             return a
         },
         limit() {
-            let limit = E(10).mul(UPGS.replicanti[1].effect())
+            let limit = E(Infinity)
             return limit
         },
         penalty(x = player.replicanti) {
@@ -31,16 +31,11 @@ const FORMS = {
             if (CHALS.onChal("normal1") || CHALS.onChal("inf1")) a = a.pow(1.5)
             if (CHALS.onChal("inf3")) a = a.pow(2)
             a = a.sub(1)
-            return E.lte(b, 1) ? a.max(1) : a.sqrt()
+            return E(1)
         },
         superLimit() {
-            let a = FORMS.quarterINF
-            if (player.prestige.upgrades.includes(21)) a = a.mul(UPGS.prestige[21].effect())
-            if (player.prestige.upgrades.includes(31)) a = a.mul(UPGS.prestige[31].effect())
-            if (player.inf.upgrades.includes(11)) a = a.mul(UPGS.post_inf[11].effect())
-            if (player.prestige.upgrades.includes(33)) a = a.pow(1.15)
-            if (!player.inf.upgrades.includes(31)) a = a.softcap("e2000",0.5,0)
-            return a.max(1)
+            let a = E(Infinity)
+            return a
         },
         superPenalty(x = player.replicanti) {
             if (x.lt(this.superLimit())) return E(1)
@@ -52,8 +47,7 @@ const FORMS = {
             return a
         },
         hyperLimit() {
-            let a = E(2).pow(E(2).pow(15))
-            if (player.inf.upgrades.includes(33)) a = a.mul(UPGS.post_inf[33].effect())
+            let a = E(Infinity)
             return a
         },
         hyperPenalty(x = player.replicanti) {
