@@ -75,13 +75,13 @@
                                 <div style='min-width: 300px; margin: 5px;'>
                                     <div style='text-align: left;'><h3>{{ format(player.rep_galaxy, 0) }}</h3> Replicanti Galaxy</div><br>
                                     <button class='btn' v-bind:class="{locked: !FORMS.replicanti.galaxy.can()}" @click="FORMS.replicanti.galaxy.reset()">
-                                        Reset your Replicanti, but makes Replicanti upgrades is <b>{{ format(FORMS.replicanti.galaxy.effect()) }}x</b> stronger.
+                                        Reset your Replicanti, but makes Replicanti upgrades <b>{{ format(FORMS.replicanti.galaxy.effect()) }}×</b> stronger.
                                         <br>Require: {{ format(FORMS.replicanti.galaxy.req()) }} replicanti
                                     </button>
                                 </div><div style='min-width: 300px; margin: 5px;' v-if="FORMS.replicanti.sacrifice.unl()">
                                     <div style='text-align: left;'>Replicanti Sacrifice <b style="color: black">(^{{ format(player.rep_sacrifice) }})</b></div><br>
                                     <button class='btn' v-bind:class="{locked: !FORMS.replicanti.sacrifice.can()}" @click="FORMS.replicanti.sacrifice.doSac()">
-                                        Sacrifice your Replicanti, but makes Replicanti growth is <b>^{{ format(player.rep_sacrifice) }} -> ^{{ format(FORMS.replicanti.sacrifice.set()) }}</b> stonger.
+                                        Sacrifice your Replicanti, but makes Replicanti growth <b>^{{ format(player.rep_sacrifice) }} -> ^{{ format(FORMS.replicanti.sacrifice.set()) }}</b> stonger.
                                     </button>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@
                         <h3>You have <span style="color: #ffaa2b;">{{ format(player.inf.points,0) }}</span> Infinity points.</h3><br><br>
                         <div v-if="player.tab[1] == 0">
                             You have <h2>{{ format(player.inf.replicanti) }} / {{ format(FORMS.inf.replicanti.cap()) }}</h2> Infinity Replicanti. Translated to <h2>{{ format(FORMS.inf.replicanti.effect()) }}</h2>x strength on replicanti upgrades.<br>
-                            (x{{ format(FORMS.inf.replicanti.growth()) }}/s)<br>
+                            (×{{ format(FORMS.inf.replicanti.growth()) }}/s)<br>
                             (+{{ format(FORMS.calc_OoM(FORMS.inf.replicanti.growth())) }} OoMs/s)<br><br>
                             <div class='table_center'>
                                 <div style='min-width: 300px; margin: 5px;' v-for="x in UPGS.inf_rep.cols">
@@ -218,7 +218,7 @@
                             </div><br><br>
                             <button class='btn inf' v-bind:class="{locked: !FORMS.inf.mult.can()}" onclick="FORMS.inf.mult.buy()">
                                 Multiply Infinity points gain.<br>
-                                Currently: {{ format(FORMS.inf.mult.effect(),0) }}x<br>
+                                Currently: {{ format(FORMS.inf.mult.effect(),0) }}×<br>
                                 Cost: {{ format(FORMS.inf.mult.cost(),0) }} Infinity points.
                             </button>
                         </div><div v-if="player.tab[1] == 2">
