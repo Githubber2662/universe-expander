@@ -4,7 +4,7 @@ const AUTOS = {
         if (player.autobuyer["auto_rg"]) FORMS.replicanti.galaxy.reset(true)
         if (player.autobuyer["auto_rsac"]) FORMS.replicanti.sacrifice.doSac()
         if (player.autobuyer["auto_ic"]) FORMS.inf.comp.reset()
-        if (player.autobuyer["auto_ip"]) UPGS.inf_rep.max(1)
+        if (player.autobuyer["auto_ip"]) UPGS.inf_rep.buyMax()
     },
     length: 7,
     1: {
