@@ -48,7 +48,7 @@ const CHALS = {
         },
         2: {
             unl() { return true },
-            desc: "You cannot buy Replicanti Multiplier, and Replicanti growth starts 2x",
+            desc: "You cannot buy Replicanti Multiplier, and Replicanti growth starts 1.2×",
             reward: "Unlock Replicanti Multiplier autobuyer",
         },
         3: {
@@ -58,7 +58,7 @@ const CHALS = {
         },
         4: {
             unl() { return true },
-            desc: "Repeated Replicanti boost Replicanti Multiplier/Power instead of Replicanti Storage, but Repeated Replicanti are 4x stronger",
+            desc: "Repeated Replicanti no longer boosts anything",
             reward: "Unlock Repeated Replicanti autobuyer",
         },
         5: {
