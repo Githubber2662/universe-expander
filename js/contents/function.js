@@ -13,8 +13,7 @@ const FORMS = {
             return gain.root(this.penalty()).min(this.cap())
         },
         cap() {
-            let a = FORMS.INF
-            if (player.inf.upgrades.includes(23)) a = a.mul(UPGS.post_inf[23].effect())
+            let a = E(Infinity)
             return a
         },
         limit() {
