@@ -44,7 +44,7 @@
                         </button>
                     </div>
                 </div>
-                You have <h2>{{ format(player.replicanti) }}</h2> replicanti<br>
+                Your universe has a volume of <h2>{{ format(player.replicanti) }}</h2> m<sup>3</sup><br>
                 (x{{ format(FORMS.replicanti.growth()) }}/s)<br>
                 (+{{ format(FORMS.calc_OoM(FORMS.replicanti.growth())) }} OoMs/s)<br><br><div style="height: 70px">
                     <span v-if="FORMS.replicanti.penalty().gt(1)">
@@ -58,7 +58,7 @@
                 <div v-if="player.tab[0] == 0">
                     <div v-if="player.tab[1] == 0">
                         <div v-if="FORMS.inf.reached()">
-                            <h3>Beyond Replicanti, Replicanti growth cannot go beyond Infinity...</h3><br><br>
+                            <h3>Beyond Replicanti, Replicanti growth cannot go beyond 1.7976931348623277e308...</h3><br><br>
                             <button class='btn inf' onclick="FORMS.inf.reset()">
                                 Go Infinity, but resets all previous features except achievements for being Infinity.
                             </button>
