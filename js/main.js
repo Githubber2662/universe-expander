@@ -13,17 +13,20 @@ const ST_NAMES = [
 
 function format(ex, acc=4, style="sc") {
     ex = E(ex)
-    if (ex.isInfinite()) return 'Infinity'
+    if (ex.isInfinite()) return ex.isNegative() ? '-Infinity' : 'Infinity'
     neg = ex.isNegative()?"-":""
     if (ex.isNegative()) ex = ex.mul(-1)
     let e = ex.log10().floor()
     switch (style) {
         case "sc":
-            if (e.lt(4)) {
+            if (e.lte(E(acc))) {
                 return neg+ex.toFixed(Math.max(Math.min(acc-e.toNumber(), acc), 0))
-            } else {
+            } else  if(ex.slog().lte(E(acc))){
                 let m = ex.div(E(10).pow(e))
                 return neg+(e.log10().gte(9)?'':m.toFixed(4))+'e'+format(e, 0, "sc")
+            }
+            else {
+                return ex.toString()
             }
         case "st":
             if (e.lt(3)) {
