@@ -242,6 +242,15 @@ const UPGS = {
                 }
             }
         },
+        max(x) {
+                if (this.can(x)) {
+                let bulk = this[x].bulk()
+                if (bulk.gt(player.inf_rep_upgs[x])) {
+                    if (!ACHS.has(47)) player.inf.points = player.inf.points.sub(this[x].cost(bulk.sub(1)))
+                    player.inf_rep_upgs[x] = bulk
+                }
+            }
+        },
         1: {
             id: 1,
             title: "Infinity Replicanti Multiplier",
