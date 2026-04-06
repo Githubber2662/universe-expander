@@ -31,7 +31,7 @@ const FORMS = {
             if (CHALS.onChal("normal1") || CHALS.onChal("inf1")) a = a.pow(1.5)
             if (CHALS.onChal("inf3")) a = a.pow(2)
             a = a.sub(1)
-            return E.lte(b, 1) ? a.max(1) : a.pow(E(1).div(b.max(1)))
+            return E.lte(b, 1) ? a.max(1) : a.sqrt()
         },
         superLimit() {
             let a = FORMS.quarterINF
