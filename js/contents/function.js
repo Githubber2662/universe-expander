@@ -6,11 +6,13 @@ const FORMS = {
     replicanti: {
         growth() {
             let gain = UPGS.replicanti[2].effect()
-            if (CHALS.onChal("normal2") || CHALS.onChal("inf1")) gain = E(2)
+            if (CHALS.onChal("normal2") || CHALS.onChal("inf1")) gain = E(1.2)
             if (this.sacrifice.unl()) gain = gain.pow(player.rep_sacrifice)
             gain = gain.pow(UPGS.replicanti[3].effect())
             if (ACHS.has(38)) gain = gain.pow(player.replicanti.log10().add(1).log10().add(1))
+            gain = gain.mul(UPGS.replicanti[1].effect())
             return gain.root(this.penalty()).min(this.cap())
+            
         },
         cap() {
             let a = E(Infinity)
