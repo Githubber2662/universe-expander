@@ -105,7 +105,7 @@ const ACHS = {
 
         51: "Buy Replicator Tier 4.",
         52: "Reach at least format(e4200) Replicanti without Replicanti Galaxies, Sacrifice while in Infinity challenge 1.",
-		53: "Reach format(ee10) Replicanti.",
+		53: "Reach at least format(ee10) Replicanti.",
         54: "Reach at least format(ee4) Infinity Replicanti.",
     },
     rewards: {
