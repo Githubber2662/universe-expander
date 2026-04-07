@@ -207,7 +207,7 @@ const FORMS = {
         comp: {
             req() { return FORMS.inf.replicanti.cap() },
             can() { return player.inf.replicanti.gte(this.req()) },
-            bulk() { return player.inf.replicanti.gte(1e200) ? player.inf.replicanti.div(1e200).pow(E(1).div(player.inf.comp.div(10).max(2).pow(1.5))).mul(1e200).log(10)).pow(E(2).div(3))).sub(9).max(0).add(9)).div(1e10) : (player.inf.replicanti.gte(1e10) ? (((player.inf.replicanti.log(10)).pow(E(2).div(3))).sub(9).max(0).add(9)).div(1e10): E(0))},
+            bulk() { return player.inf.replicanti.gte(1e200) ? player.inf.replicanti.div(1e200).pow(E(1).div(player.inf.comp.div(10).max(2).pow(1.5))).mul(1e200).log(10).pow(E(2).div(3)).sub(9).max(0).add(9).div(1e10) : (player.inf.replicanti.gte(1e10) ? (((player.inf.replicanti.log(10)).pow(E(2).div(3))).sub(9).max(0).add(9)).div(1e10): E(0))},
             reset(bulk=false) {
                 if (this.can()) {
                     if(!bulk || player.inf.comp.lt(8)) {
