@@ -5,8 +5,10 @@ const AUTOS = {
         if (player.autobuyer["auto_rsac"]) FORMS.replicanti.sacrifice.doSac()
         if (player.autobuyer["auto_ic"]) FORMS.inf.comp.reset()
         if (player.autobuyer["auto_ip"]) UPGS.inf_rep.max(1)
+        if (player.autobuyer["auto_ip"]) UPGS.inf_rep.max(1)
+        for (let x = 9; x <= 12; x++) if (player.autobuyer[this[x].id]) FORMS.replicator.gen.buy(x-8, true)
     },
-    length: 8,
+    length: 12,
     1: {
         dis: "Replicanti Storage autobuyer",
         id: "auto_rs",
@@ -59,6 +61,34 @@ const AUTOS = {
     8: {
         dis: "Infinity Point autobuyer",
         id: "auto_ip",
+        unl() { return player.breakInf },
+        see() { return ACHS.has(48) },
+        see_desc: `Get Achievement "Yes Inflation".`,
+    },
+    9: {
+        dis: "Replicator 1 autobuyer",
+        id: "auto_r1",
+        unl() { return player.breakInf },
+        see() { return ACHS.has(48) },
+        see_desc: `Get Achievement "Yes Inflation".`,
+    },
+    10: {
+        dis: "Replicator 2 autobuyer",
+        id: "auto_r2",
+        unl() { return player.breakInf },
+        see() { return ACHS.has(48) },
+        see_desc: `Get Achievement "Yes Inflation".`,
+    },
+    11: {
+        dis: "Replicator 3 autobuyer",
+        id: "auto_r3",
+        unl() { return player.breakInf },
+        see() { return ACHS.has(48) },
+        see_desc: `Get Achievement "Yes Inflation".`,
+    },
+    12: {
+        dis: "Replicator 4 autobuyer",
+        id: "auto_r4",
         unl() { return player.breakInf },
         see() { return ACHS.has(48) },
         see_desc: `Get Achievement "Yes Inflation".`,
