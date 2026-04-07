@@ -61,6 +61,7 @@ const ACHS = {
 
         51: "mmm, delicious",
         52: "EXE.exe has stopped working",
+		53: "Absolute Inflation"
         54: "Hardened Replicanti",
     },
     descs: {
@@ -104,6 +105,7 @@ const ACHS = {
 
         51: "Buy Replicator Tier 4.",
         52: "Reach at least format(e4200) Replicanti without Replicanti Galaxies, Sacrifice while in Infinity challenge 1.",
+		53: "Reach format(ee10) Replicanti."
         54: "Reach at least format(ee4) Infinity Replicanti.",
     },
     rewards: {
@@ -123,6 +125,7 @@ const ACHS = {
         48: "Unlock Infinity Compressor Autobuyer.",
 
         52: "Replicanti Galaxy & Sacrifice are 50% stronger.",
+		53: "Your Infinity Replicanti is shrunk instead of being completely reset."
         54: "Infinity Replicanti growth is 50% stronger.",
     },
     checks: {
@@ -167,6 +170,7 @@ const ACHS = {
 
         51() { return player.replicator.gens[4].bought.gte(1) },
         52() { return player.replicanti.gte('e4200') && player.rep_galaxy.lte(0) && player.rep_sacrifice.lte(1) && CHALS.onChal('inf1') },
+		53() { return player.replicanti.gte('ee10')
         54() { return player.inf.replicanti.gte('ee4') },
     }
 }
