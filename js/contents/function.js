@@ -214,7 +214,7 @@ const FORMS = {
                 }
             },
             onReset() {
-                player.inf.replicanti = E(1)
+                player.inf.replicanti = ACHS.has(53) ? player.inf.replicanti.div(this.req()) : 1
             },
             effect(x=player.inf.comp) {
                 let ret = {}
