@@ -214,12 +214,7 @@ const FORMS = {
                 }
             },
             onReset() {
-                if(ACHS.has(53)) {
-                    player.inf.replicanti = player.inf.replicanti.div(this.req()) 
-                }
-                else {
-                    player.inf.replicanti = E(1)
-                
+                player.inf.replicanti = E(1)       
             },
             effect(x=player.inf.comp) {
                 let ret = {}
