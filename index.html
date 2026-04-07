@@ -197,8 +197,8 @@
                                 <div style='min-width: 300px; margin: 5px;'>
                                     <div style='text-align: left;'><h3>{{ format(player.inf.comp, 0) }}</h3> Infinity Compressor</div><br>
                                     <button class='btn inf' v-bind:class="{locked: !FORMS.inf.comp.can()}" @click="FORMS.inf.comp.reset()">
-                                        Reset your Infinity Replicanti except thier upgrades, but adds <b>+{{ format(FORMS.inf.comp.effect().buff) }}</b> free base from Infinity Replicanti effect. Unfortunately, Infinity Replicanti growth is rooted by <b>{{ format(FORMS.inf.comp.effect().nerf) }}</b>.
-                                        <span v-if="FORMS.inf.comp.effect().cap.gt(1)"> And Infinity Replicanti cap is increased by <b>{{ format(FORMS.inf.comp.effect().cap) }}x</b>.</span>
+                                        Reset your Infinity Replicanti except thier upgrades, but adds <b>+{{ format(FORMS.inf.comp.effect().buff) }}</b> free base from Infinity Replicanti effect
+                                        <span v-if="FORMS.inf.comp.effect().cap.gt(1)"> and Infinity Replicanti cap is increased by <b>{{ format(FORMS.inf.comp.effect().cap) }}×</b>.</span>
                                         <br>Require: Max of Infinity Replicanti
                                     </button>
                                 </div>
@@ -226,7 +226,7 @@
                                 Unlock Replicator.<br>Require: {{ format(1e64) }} Infinity points
                             </button><div v-if="player.replicator.unl">
                                 You have <h2>{{ format(player.replicator.amount) }}</h2> replicator, which boosts Infinity Replicanti growth by ^<h2>{{ format(FORMS.replicator.effect().ir1) }}</h2>, thier effect by <h2>{{ format(FORMS.replicator.effect().ir2) }}</h2>x<br>
-                                (x{{ format(FORMS.replicator.growth()) }}/s)<br>
+                                (×{{ format(FORMS.replicator.growth()) }}/s)<br>
                                 (+{{ format(FORMS.calc_OoM(FORMS.replicator.growth())) }} OoMs/s)<br><br>
                                 <div style="font-size: 15px; width: 100%;">
                                     <div class="table_center gen_frame" v-for="x in 4" v-if="x == 1 ? true : player.replicator.gens[x-1].bought.gte(1)">
