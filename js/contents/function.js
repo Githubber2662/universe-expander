@@ -278,9 +278,9 @@ const FORMS = {
                         player.replicator.gens[x].amount = player.replicator.gens[x].amount.mul(1.01)
                     }
                     else {
-                        if(this.bulk.gt(player.replicator.gens[x].bought) && player.inf.points.sub(this.bulk(x).sub(1)).gte(0)) {
+                        if(this.bulk(x).gt(player.replicator.gens[x].bought) && player.inf.points.sub(this.bulk(x).sub(1)).gte(0)) {
                         player.inf.points = player.inf.points.sub(this.bulk(x).sub(1))
-                        player.replicator.gens[x].bought = this.bulk
+                        player.replicator.gens[x].bought = this.bulk(x)
                         player.replicator.gens[x].amount = E(1.01).pow(player.replicator.gens.bought[x])
                         }
                     }
