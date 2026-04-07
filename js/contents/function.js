@@ -269,12 +269,14 @@ const FORMS = {
             },
             cost(x, y=player.replicator.gens[x].bought) { return E(10).pow(this.exps[x-1]).pow(y.pow(1.25)).mul(E(10).pow(this.exps[x-1]-1)).mul(1e64) },
             can(x) { return player.inf.points.gte(this.cost(x)) },
+            bulk(x) { return player.inf.points.gte(E(1e64)) ? ((player.inf.points.log10().sub(63)).div(this.exps[x-1]).sub(1)).pow(0.8).floor() : E(0) },
             buy(x) {
                 if (this.can(x)) {
                     player.inf.points = player.inf.points.sub(this.cost(x))
                     player.replicator.gens[x].bought = player.replicator.gens[x].bought.add(1)
                     player.replicator.gens[x].amount = player.replicator.gens[x].amount.mul(1.01)
                 }
+            }
             },
         },
     },
