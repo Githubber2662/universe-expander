@@ -125,7 +125,6 @@ const ACHS = {
         48: "Unlock Infinity Compressor Autobuyer.",
 
         52: "Replicanti Galaxy & Sacrifice are 50% stronger.",
-		53: "Your Infinity Replicanti is shrunk instead of being completely reset.",
         54: "Infinity Replicanti growth is 50% stronger.",
     },
     checks: {
