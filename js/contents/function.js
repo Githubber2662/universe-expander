@@ -285,10 +285,8 @@ const FORMS = {
                         }
                     }
                 }
-            }
             },
         },
     },
 }
-
 function getDisplayShrink(x) { return x.gte(1e4) ? "1 / "+format(x) : format(x.pow(-1)) }
