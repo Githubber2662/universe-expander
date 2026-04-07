@@ -76,4 +76,4 @@ function loop() {
     date = performance.now();
 }
 
-setInterval(loop, 20)
+setInterval(loop, 1)
