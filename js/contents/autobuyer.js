@@ -6,7 +6,7 @@ const AUTOS = {
         if (player.autobuyer["auto_ic"]) FORMS.inf.comp.reset()
         if (player.autobuyer["auto_ip"]) UPGS.inf_rep.max(1)
     },
-    length: 7,
+    length: 8,
     1: {
         dis: "Replicanti Storage autobuyer",
         id: "auto_rs",
