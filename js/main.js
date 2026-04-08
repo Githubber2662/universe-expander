@@ -23,7 +23,7 @@ function format(ex, acc=9, style="sc") {
             if (ef.lte(E(acc))) {
                 return neg+ex.toFixed(Math.max(Math.min(acc-ef.toNumber(), acc), 0))
             } else  if(ex.slog().lte(E(acc))){
-                if(ex.slog().gte(E(1).add(E(acc).log10())) && ex.slog().lt(E(2).add(E(acc).log10()))) {
+                if(ex.slog().gte(E(1).add(E(acc).E(add).log10())) && ex.slog().lt(E(2).add(E(acc).add(1).log10()))) {
                     let m = ex.div(E(10).pow(ef))
                     if(Number(m.toNumber().toFixed(acc)) >= 10) {
                         m = m.div(10)
@@ -32,7 +32,7 @@ function format(ex, acc=9, style="sc") {
                     return neg+m.toFixed(acc)+'e'+format(ef, 0, "sc")
                 }
                 else {
-                  let pt = ex.slog().sub(E(2).add(E(acc).log10())).floor()
+                  let pt = ex.slog().sub(E(2).add(E(acc).add(1).log10())).floor()
                   let out = 'e'
                   for(let v = 0; v < pt.toNumber(); v++) {
                     out = out + 'e'
