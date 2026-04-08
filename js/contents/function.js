@@ -215,8 +215,10 @@ const FORMS = {
                         this.onReset()
                     }
                     else {
+                        if(this.bulk.gt(player.inf.comp)) {
                         player.inf.comp = this.bulk()
                         this.onReset()
+                         }
                     }
                 }
             },
