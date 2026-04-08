@@ -31,7 +31,8 @@ function calc(dt) {
     let inf_grow = player.inf.replicanti.mul(FORMS.inf.replicanti.growth().pow(dt))
     if (inf_grow.gte(FORMS.inf.replicanti.cap()) && !player.autobuyer["auto_ic"]) player.inf.replicanti = E(FORMS.inf.replicanti.cap())
     else player.inf.replicanti = inf_grow
-
+    AUTOS.update()
+    
     player.time += dt
     player.inf.time += dt
 
@@ -41,8 +42,6 @@ function calc(dt) {
         if (x == 1) player.replicator.amount = player.replicator.amount.mul(FORMS.replicator.growth().pow(dt))
         else player.replicator.gens[x-1].amount = player.replicator.gens[x-1].amount.mul(FORMS.replicator.gen.growth(x).pow(dt))
     }
-
-    AUTOS.update()
     ACHS.checkACHS()
 }
 
