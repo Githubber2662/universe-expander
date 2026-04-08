@@ -20,7 +20,7 @@ function format(ex, acc=9, style="sc") {
     let ef = e.floor()
     switch (style) {
         case "sc":
-            if (e.lte(E(acc))) {
+            if (ef.lte(E(acc))) {
                 return neg+ex.toFixed(Math.max(Math.min(acc-ef.toNumber(), acc), 0))
             } else  if(ex.slog().lte(E(acc))){
                 if(ex.slog().gte(E(1).add(E(acc).log10())) && ex.slog().lt(E(2).add(E(acc).log10()))) {
