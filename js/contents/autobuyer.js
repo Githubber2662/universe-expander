@@ -3,7 +3,7 @@ const AUTOS = {
         for (let x = 1; x <= 4; x++) if (player.autobuyer[this[x].id]) UPGS.replicanti.max(x)
         if (player.autobuyer["auto_rg"]) FORMS.replicanti.galaxy.reset(true)
         if (player.autobuyer["auto_rsac"]) FORMS.replicanti.sacrifice.doSac()
-        if (player.autobuyer["auto_ic"]) FORMS.inf.comp.reset()
+        if (player.autobuyer["auto_ic"]) FORMS.inf.comp.reset(true)
         if (player.autobuyer["auto_ip"]) UPGS.inf_rep.max(1)
         for (let x = 9; x <= 12; x++) if (player.autobuyer[this[x].id]) FORMS.replicator.gen.buy(x-8, true)
     },
