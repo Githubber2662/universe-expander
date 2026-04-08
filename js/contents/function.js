@@ -223,7 +223,7 @@ const FORMS = {
                 }
             },
             onReset() {
-                player.inf.replicanti = E(1)       
+                player.inf.replicanti = player.inf.replicanti.div(FORMS.inf.replicanti.cap)       
             },
             effect(x=player.inf.comp) {
                 let ret = {}
