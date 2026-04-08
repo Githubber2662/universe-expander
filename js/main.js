@@ -29,17 +29,22 @@ function format(ex, acc=9, style="sc") {
                         m = m.div(10)
                         ef = ef.add(1)
                     }
-                    return neg+m.toFixed(acc))+'e'+format(ef, 0, "sc")
+                    return neg+m.toFixed(acc)+'e'+format(ef, 0, "sc")
                 }
                 else {
                   let pt = ex.slog().sub(E(2).add(E(acc).log10())).floor()
                   let out = 'e'
-                  for(let v = 0; v < Math.floor(pt.toNumber()); v++) {
+                  for(let v = 0; v < pt.toNumber(); v++) {
                     out = out + 'e'
                     e = e.log10()
                   }
-                    
-                return neg+(e.log10().gt(E(acc))?'':m.toFixed(acc))+'e'+format(e, 0, "sc")
+                  ef = e.floor()
+                let m = E(10).pow(e.sub(ef))
+                if(Number(m.toNumber().toFixed(acc)) >= 10) {
+                    m = m.div(10)
+                    ef = ef.add(1)
+                }
+                return neg+out+m.toFixed(acc)+'e'+format(ef, 0, "sc")
                 }
             }
             else {
