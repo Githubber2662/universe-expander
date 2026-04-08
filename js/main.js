@@ -16,14 +16,31 @@ function format(ex, acc=9, style="sc") {
     if (ex.isInfinite()) return ex.isNegative() ? '-Infinity' : 'Infinity'
     neg = ex.isNegative()?"-":""
     if (ex.isNegative()) ex = ex.mul(-1)
-    let e = ex.log10().floor()
+    let e = ex.log10()
+    let ef = e.floor()
     switch (style) {
         case "sc":
             if (e.lte(E(acc))) {
-                return neg+ex.toFixed(Math.max(Math.min(acc-e.toNumber(), acc), 0))
+                return neg+ex.toFixed(Math.max(Math.min(acc-ef.toNumber(), acc), 0))
             } else  if(ex.slog().lte(E(acc))){
-                let m = ex.div(E(10).pow(e))
-                return neg+(e.log10().gte(9)?'':m.toFixed(4))+'e'+format(e, 0, "sc")
+                if(ex.slog().gte(E(1).add(E(acc).log10())) && ex.slog().lt(E(2).add(E(acc).log10()))) {
+                    let m = ex.div(E(10).pow(ef))
+                    if(Number(m.toNumber().toFixed(acc)) >= 10) {
+                        m = m.div(10)
+                        ef = ef.add(1)
+                    }
+                    return neg+m.toFixed(acc))+'e'+format(ef, 0, "sc")
+                }
+                else {
+                  let pt = ex.slog().sub(E(2).add(E(acc).log10())).floor()
+                  let out = 'e'
+                  for(let v = 0; v < Math.floor(pt.toNumber()); v++) {
+                    out = out + 'e'
+                    e = e.log10()
+                  }
+                    
+                return neg+(e.log10().gt(E(acc))?'':m.toFixed(acc))+'e'+format(e, 0, "sc")
+                }
             }
             else {
                 return ex.toString()
