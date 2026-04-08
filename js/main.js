@@ -11,7 +11,7 @@ const ST_NAMES = [
 
 
 
-function format(ex, acc=4, style="sc") {
+function format(ex, acc=9, style="sc") {
     ex = E(ex)
     if (ex.isInfinite()) return ex.isNegative() ? '-Infinity' : 'Infinity'
     neg = ex.isNegative()?"-":""
