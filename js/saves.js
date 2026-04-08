@@ -31,6 +31,7 @@ function calc(dt) {
     let inf_grow = player.inf.replicanti.mul(FORMS.inf.replicanti.growth().pow(dt))
     if (inf_grow.gte(FORMS.inf.replicanti.cap()) && !player.autobuyer["auto_ic"]) player.inf.replicanti = E(FORMS.inf.replicanti.cap())
     else player.inf.replicanti = inf_grow
+    if(player.autobuyer["auto_ic"]) FORMS.inf.comp.reset(true)
 
     player.time += dt
     player.inf.time += dt
