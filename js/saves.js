@@ -109,12 +109,12 @@ function checkIfUndefined() {
     const data = PLAYER_DATA
     for (let x = 0; x < Object.keys(data).length; x++) {
         let key = Object.keys(data)[x]
-        if (player[key] === undefined) player[key] = data[key]
+        if (player[key] === undefined || isNaN(player[key]) || player[key].isNaN()) player[key] = data[key]
     }
 
         // Replicanti Upgrades
-    for (let x = 1; x <= UPGS.replicanti.cols; x++) if (player.rep_upgs[x] === undefined) player.rep_upgs[x] = E(0)
-    for (let x = 1; x <= UPGS.inf_rep.cols; x++) if (player.inf_rep_upgs[x] === undefined) player.inf_rep_upgs[x] = E(0)
+    for (let x = 1; x <= UPGS.replicanti.cols; x++) if (player.rep_upgs[x] === undefined || isNaN(player.rep_upgs[x]) || player.rep_upgs[x].isNaN()) player.rep_upgs[x] = E(0)
+    for (let x = 1; x <= UPGS.inf_rep.cols; x++) if (player.inf_rep_upgs[x] === undefined || isNaN(player.inf_rep_upgs[x]) || player.inf_rep_upgs[x].isNaN()) player.inf_rep_upgs[x] = E(0)
 
         // Prestige
     for (let x = 0; x < Object.keys(data.prestige).length; x++) {
