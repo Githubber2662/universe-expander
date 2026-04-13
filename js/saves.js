@@ -7,8 +7,8 @@ function ex(x){
     return nx;
 }
 
-function showWinScreen() {
-    document.getElementById('win-screen').style.display = 'flex'
+function showWinScreen(win) {
+    document.getElementById('win-screen').style.display = win ? 'flex' : 'none'
 }
 
 ExpantaNum.prototype.softcap = function (start,force,mode,log=false){
@@ -31,12 +31,14 @@ function calc(dt) {
         player.replicanti = grow
     }
     player.stats.best_rep = player.replicanti.max(player.stats.best_rep)
-    if(player.stats.best_rep.isInfinite() && player.stats.best_rep.isPositive()) showWinScreen()
+    if(player.stats.best_rep.isInfinite() && player.stats.best_rep.isPositive()) showWinScreen(true)
+    else showWinScreen(false)
 
     let inf_grow = player.inf.replicanti.mul(FORMS.inf.replicanti.growth().pow(dt))
     if (inf_grow.gte(FORMS.inf.replicanti.cap()) && !player.autobuyer["auto_ic"]) player.inf.replicanti = E(FORMS.inf.replicanti.cap())
     else player.inf.replicanti = inf_grow
-    if(player.replicanti.isInfinite() && player.inf.replicanti.isPositive()) showWinScreen()
+    if(player.replicanti.isInfinite() && player.inf.replicanti.isPositive()) showWinScreen(true)
+    else showWinScreen(false)
     AUTOS.update()
     
     player.time += dt
