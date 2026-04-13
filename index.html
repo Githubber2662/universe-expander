@@ -258,7 +258,7 @@
         <div style="display: none;">{{ player.time }}</div>
         <div id="win-screen" class="hidden">
             <h1>You Win!</h1>
-        <button onclick="wipe()">Play Again</button>
+        <button onclick="if (confirm('You wanted to RESET your progress to new game?')) {wipe(); save(); location.reload()}">Play Again</button>
 </div>
 
     </div>
