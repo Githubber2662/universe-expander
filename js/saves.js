@@ -96,6 +96,7 @@ const PLAYER_DATA = {
 }
 
 function wipe() {
+    showWinScreen(false)
     player = PLAYER_DATA
     for (let x = 1; x <= UPGS.replicanti.cols; x++) player.rep_upgs[x] = E(0)
     for (let x = 1; x <= UPGS.inf_rep.cols; x++) player.inf_rep_upgs[x] = E(0)
